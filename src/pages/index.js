@@ -1,122 +1,126 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
+import { useState, useEffect, useRef } from "react";
+import  NavBar  from "../components/navbar";
+import Footer from "../components/footer";
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
 
-const links = [
-  {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-  },
-  {
-    text: "Examples",
-    url: "https://github.com/gatsbyjs/gatsby/tree/master/examples",
-    description:
-      "A collection of websites ranging from very basic to complex/complete that illustrate how to accomplish specific tasks within your Gatsby sites.",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Learn how to add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-  },
-  {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-  },
-]
 
-const samplePageLinks = [
-  {
-    text: "Page 2",
-    url: "page-2",
-    badge: false,
-    description:
-      "A simple example of linking to another page within a Gatsby site",
-  },
-  { text: "TypeScript", url: "using-typescript" },
-  { text: "Server Side Rendering", url: "using-ssr" },
-  { text: "Deferred Static Generation", url: "using-dsg" },
-]
+const experience = [
+  { title: 'Student Web Developer - UCI OIT', duration: 'Dec 23 - Present', skills: ['Laravel', 'PHP', 'VueJS', 'GitHub'], link: 'https://www.oit.uci.edu/', desc: 'Created graphics for social media and to promote workshops to help students practice their technical skills such as using Git, Figma, and networking events'},
+  { title: 'Web Developer - We The Pixies', duration: 'Oct 23 - Present', skills: ['Laravel', 'PHP', 'GitLab'], link: 'https://www.wethepixies.net/', desc: 'Created graphics for social media and to promote workshops to help students practice their technical skills such as using Git, Figma, and networking events'},
+  { title: 'Connected Play Engineer - Mattel Inc.', duration: 'Jun 24 - Aug 24', skills: ['Project Management', 'User Experience', 'Microsoft Excel', 'Miro'], link: 'https://about.mattel.com/', desc: 'Created graphics for social media and to promote workshops to help students practice their technical skills such as using Git, Figma, and networking events'},
+  { title: 'Graphics Director - Hack at UCI', duration: 'Apr 23 - Feb 25', skills: ['HTML/CSS', 'Weebly', 'Graphic Design', 'Marketing'], link: 'https://hack.ics.uci.edu/', desc: 'Created graphics for social media and to promote workshops to help students practice their technical skills such as using Git, Figma, and networking events'},
+  { title: 'Historian & Newsletter Chair - Anteaters Sprinkling Happiness', duration: 'Sep 22 - Apr 25', skills: ['Figma', 'Krita', 'Slack', 'Graphic Design'], link: 'https://anteaterssprinklinghappiness.weebly.com/', desc: 'Created graphics for social media and to promote workshops to help students practice their technical skills such as using Git, Figma, and networking events'},
+  { title: 'Graphics Designer - Women in Informational and Computer Sciences', duration: 'Dec 22 - Dec 23', skills: ['Canva', 'Figma', 'Graphic Design'], link: 'https://wics.ics.uci.edu/', desc: 'Created graphics for social media and to promote workshops to help students practice their technical skills such as using Git, Figma, and networking events'},
+];
 
-const moreLinks = [
-  { text: "Join us on Discord", url: "https://gatsby.dev/discord" },
-  {
-    text: "Documentation",
-    url: "https://gatsbyjs.com/docs/",
-  },
-  {
-    text: "Starters",
-    url: "https://gatsbyjs.com/starters/",
-  },
-  {
-    text: "Showcase",
-    url: "https://gatsbyjs.com/showcase/",
-  },
-  {
-    text: "Contributing",
-    url: "https://www.gatsbyjs.com/contributing/",
-  },
-  { text: "Issues", url: "https://github.com/gatsbyjs/gatsby/issues" },
-]
+const IndexPage = () => {
 
-const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`
+  return (
+    <div>
+      <NavBar></NavBar>
+      {/* Hero Header */}
+      <div className={styles.section}>
+        <div className={styles.sectionContainer}>
+          <StaticImage src="../images/landscape.png" alt="bunny resting under a tree drawing" className={styles.headerImg}/>
+          <StaticImage src="../images/avatar.png" alt="bunny holding a dango stick" className={styles.avatarImg}/>
+          <div className={styles.headerText}>
+            <h1>Ashley Nguyen <a href>@souffle</a></h1>
+            <h3>project manager & web developer</h3>
+         </div>
+         <div className={styles.heroHeader_footer}>
+          <div className={styles.heroHeader_dropdown}>
 
-const IndexPage = () => (
-  <Layout>
-    <div className={styles.textCenter}>
-      <StaticImage
-        src="../images/example.png"
-        loading="eager"
-        width={64}
-        quality={95}
-        formats={["auto", "webp", "avif"]}
-        alt=""
-        style={{ marginBottom: `var(--space-3)` }}
-      />
-      <h1>
-        Welcome to <b>Gatsby!</b>
-      </h1>
-      <p className={styles.intro}>
-        <b>Example pages:</b>{" "}
-        {samplePageLinks.map((link, i) => (
-          <React.Fragment key={link.url}>
-            <Link to={link.url}>{link.text}</Link>
-            {i !== samplePageLinks.length - 1 && <> · </>}
-          </React.Fragment>
-        ))}
-        <br />
-        Edit <code>src/pages/index.js</code> to update this page.
-      </p>
+          </div>
+          <div className={styles.heroHeader_links}>
+            <StaticImage src="../images/square-github-brands.svg" alt="github logo" className={styles.logo}/>
+            <StaticImage src="../images/linkedin-brands.svg" alt="linkedin logo" className={styles.logo}/>
+          </div>
+         </div>
+        </div>
+      </div>
+      {/* About Section */}
+      <div className={styles.section}>
+        <div className={styles.sectionContainer}>
+        <div className={styles.aboutMeHeader}>
+          <h3 className={styles.containerHeader}>-- about me</h3>
+          <StaticImage src="../images/landscape.png" alt="bunny resting under a tree drawing" className={styles.aboutImg}/>
+        </div>
+        <div className={styles.sectionFooter}>
+          <div className={styles.containerText}>
+              <p>I'm a Third year Software Engineering student at UC Irvine and 
+                I'm passionate about software development and learning about project management!!</p>
+          </div>
+        </div>
+        </div>
+      </div>
+      {/*Experience Section */}
+      <div className={styles.section}> 
+        <div className={styles.sectionContainer}>
+        <div className={styles.aboutMeHeader}>
+          <h3 className={styles.containerHeader}>-- experience</h3>
+        </div>
+        <div className={styles.sectionFooter}>
+          {experience.map((exp, index) => (
+          <div key={index} className={styles.experienceSection}>
+            <p className={styles.containerText}><b>-- {exp.duration}</b></p>
+            <div className={styles.experienceSection_right}>
+              <p className={styles.experienceSection_desc}><b>{exp.title}</b><a href={exp.link} target="_blank"><StaticImage src="../images/link.svg" alt="linkedin logo" className={styles.link_button}/></a></p>
+              <p>{exp.desc}</p>
+                <div className={styles.experienceSection_tags}>
+                  {exp.skills.map((skill,i) => (
+                    <div className={styles.experienceSection_tags_item}>{skill}</div>
+                  ))}
+                </div>
+            </div>
+          </div>
+          ))}
+        </div>
+        </div>
+      </div>
+      {/* Projects & Designs */}
+      <div className={styles.section}>
+        <div className={styles.twoColumnSection}>
+          <div className={styles.sectionContainer}>
+            <div className={styles.aboutMeHeader}>
+              <h3 className={styles.containerHeader}>-- designs</h3>
+              <StaticImage src="../images/landscape.png" alt="bunny resting under a tree drawing" className={styles.columnImg}/>
+            </div>
+            <div className={styles.sectionFooter}>
+            <div className={styles.containerText}>
+                <p>I'm a Third year Software Engineering student at UC Irvine and 
+                  I'm passionate about software development and learning about project management!!</p>
+                  <p className={styles.viewMore}>view more</p>
+            </div>
+          </div>
+          </div>
+          <div className={styles.sectionContainer}>
+            <div className={styles.aboutMeHeader}>
+              <h3 className={styles.containerHeader}>-- projects</h3>
+              <StaticImage src="../images/landscape.png" alt="bunny resting under a tree drawing" className={styles.columnImg}/>
+            </div>
+            <div className={styles.sectionFooter}>
+              <div className={styles.containerText}>
+                  <p>I'm a Third year Software Engineering student at UC Irvine and 
+                    I'm passionate about software development and learning about project management!!</p>
+                    <p className={styles.viewMore}>view more</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className={styles.moving_background}></div>
+      <div className={styles.moving_background_right}></div>
+      <Footer></Footer>
     </div>
-    <ul className={styles.list}>
-      {links.map(link => (
-        <li key={link.url} className={styles.listItem}>
-          <a
-            className={styles.listItemLink}
-            href={`${link.url}${utmParameters}`}
-          >
-            {link.text} ↗
-          </a>
-          <p className={styles.listItemDescription}>{link.description}</p>
-        </li>
-      ))}
-    </ul>
-    {moreLinks.map((link, i) => (
-      <React.Fragment key={link.url}>
-        <a href={`${link.url}${utmParameters}`}>{link.text}</a>
-        {i !== moreLinks.length - 1 && <> · </>}
-      </React.Fragment>
-    ))}
-  </Layout>
-)
+    
+  );
+};
 
 /**
  * Head export to define metadata for the page
