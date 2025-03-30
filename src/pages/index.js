@@ -95,7 +95,7 @@ const IndexPage = () => {
             <div className={styles.containerText}>
                 <p>I'm a Third year Software Engineering student at UC Irvine and 
                   I'm passionate about software development and learning about project management!!</p>
-                  <p className={styles.viewMore}>view more</p>
+                  <a href="/designs"><p className={styles.viewMore}>view more &rarr;</p></a>
             </div>
           </div>
           </div>
@@ -108,7 +108,7 @@ const IndexPage = () => {
               <div className={styles.containerText}>
                   <p>I'm a Third year Software Engineering student at UC Irvine and 
                     I'm passionate about software development and learning about project management!!</p>
-                    <p className={styles.viewMore}>view more</p>
+                    <a href="/projects"><p className={styles.viewMore}>view more &rarr;</p></a>
               </div>
             </div>
           </div>
