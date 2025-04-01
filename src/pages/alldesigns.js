@@ -1,6 +1,4 @@
 import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
 import { useState, useEffect, useRef } from "react";
 import  NavBar  from "../components/navbar";
 import Footer from "../components/footer";
@@ -13,77 +11,99 @@ import * as styles from "../components/index.module.css"
 const AllDesigns = () => {
   const data = useStaticQuery(graphql`
       query {
-        hackNights: file(relativePath: { eq: "designs/hacknights_api_ash.png" }) {
+        patient_safety: file(relativePath: { eq: "designs/alldesigns/patient_safety_movie_ash.png" }) {
           childImageSharp {
             gatsbyImageData(layout: CONSTRAINED)
           }
         }
-        irvinehacks25: file(relativePath: { eq: "designs/irvinehacks25.png" }) {
+          study_sesh: file(relativePath: { eq: "designs/alldesigns/study_sesh_ash.png" }) {
           childImageSharp {
             gatsbyImageData(layout: CONSTRAINED)
           }
         }
-        irvinehacksZoom: file(relativePath: { eq: "designs/irvinehacks_zoom.PNG" }) {
+          org_spotlight: file(relativePath: { eq: "designs/alldesigns/org_spotlight.png" }) {
           childImageSharp {
             gatsbyImageData(layout: CONSTRAINED)
           }
         }
-        zh: file(relativePath: { eq: "designs/zothacks.png" }) {
+          org_spotlight_zoom: file(relativePath: { eq: "designs/alldesigns/org_spotlight_zoom.png" }) {
           childImageSharp {
             gatsbyImageData(layout: CONSTRAINED)
           }
         }
-          zh_zoom: file(relativePath: { eq: "designs/zothacks_zoom.png" }) {
+          info_sesh: file(relativePath: { eq: "designs/alldesigns/info_sesh.png" }) {
           childImageSharp {
             gatsbyImageData(layout: CONSTRAINED)
           }
         }
-        sponsorDeck: file(relativePath: { eq: "designs/sponsor_deck.png" }) {
+          vreal: file(relativePath: { eq: "designs/alldesigns/vreal.png" }) {
           childImageSharp {
             gatsbyImageData(layout: CONSTRAINED)
           }
         }
-        spotifyZoom: file(relativePath: { eq: "designs/spotify_zoom.png" }) {
+          irisHacks: file(relativePath: { eq: "designs/alldesigns/iris_hacks.png" }) {
           childImageSharp {
             gatsbyImageData(layout: CONSTRAINED)
           }
         }
-        club_redesign: file(relativePath: { eq: "designs/redesign_club.PNG" }) {
+          atomics: file(relativePath: { eq: "designs/alldesigns/general_atomics.png" }) {
           childImageSharp {
             gatsbyImageData(layout: CONSTRAINED)
           }
         }
-          club_redesign_zoom: file(relativePath: { eq: "designs/clubsite_zoom.png" }) {
+           mobile_toys: file(relativePath: { eq: "designs/alldesigns/mobile_toys_sq.png" }) {
           childImageSharp {
             gatsbyImageData(layout: CONSTRAINED)
           }
         }
-        studySesh: file(relativePath: { eq: "designs/study_session_ash.png" }) {
+          mobile_toys_zoom: file(relativePath: { eq: "designs/alldesigns/mobile_toys.png" }) {
           childImageSharp {
             gatsbyImageData(layout: CONSTRAINED)
           }
         }
-        surviveICS: file(relativePath: { eq: "designs/surviveICS_ig_ash.png" }) {
+          v1_port: file(relativePath: { eq: "designs/alldesigns/v1_port.png" }) {
           childImageSharp {
             gatsbyImageData(layout: CONSTRAINED)
           }
         }
-        WICS: file(relativePath: { eq: "designs/WICS X Design Figma.png" }) {
+           v1_port_zoom: file(relativePath: { eq: "designs/alldesigns/v1_port_zoom.png" }) {
           childImageSharp {
             gatsbyImageData(layout: CONSTRAINED)
           }
         }
-      }
-    `);
+           v2_port: file(relativePath: { eq: "designs/alldesigns/v2_port.png" }) {
+          childImageSharp {
+            gatsbyImageData(layout: CONSTRAINED)
+          }
+        }
+           v2_port_zoom: file(relativePath: { eq: "designs/alldesigns/v2_port_zoom.png" }) {
+          childImageSharp {
+            gatsbyImageData(layout: CONSTRAINED)
+          }
+        }
+          gig_getter: file(relativePath: { eq: "designs/alldesigns/gigGetter.png" }) {
+          childImageSharp {
+            gatsbyImageData(layout: CONSTRAINED)
+          }
+        }
+          gig_getter_zoom: file(relativePath: { eq: "designs/alldesigns/gigGetter_zoom.png" }) {
+          childImageSharp {
+            gatsbyImageData(layout: CONSTRAINED)
+          }
+        }
+  }`);
     const designs = [
-      { title: 'IrvineHacks 2025 Website', src: data.irvinehacks25.childImageSharp.gatsbyImageData, tag: 'Website Mockup', zoom: data.irvinehacksZoom.childImageSharp.gatsbyImageData, link: 'https://www.figma.com/design/mQ2RQLUeSMXCIlNlNqDRj3/IrvineHacks-2025-(Copy)?m=auto&t=ghVooozU6fA0uxbk-1'},
-      { title: 'ZotHacks 2023 Website', src: data.zh.childImageSharp.gatsbyImageData, tag: 'Website Mockup', zoom: data.zh_zoom.childImageSharp.gatsbyImageData, link: 'https://www.figma.com/design/SpqLXRgSGA9NtBWxWPqkTq/Club-Website-Redesign-(Copy)?m=auto&t=ghVooozU6fA0uxbk-1'},
-      { title: 'Hack at UCI Club Site', src: data.club_redesign.childImageSharp.gatsbyImageData, tag: 'Website Mockup', zoom: data.club_redesign_zoom.childImageSharp.gatsbyImageData, link: 'https://www.figma.com/design/SpqLXRgSGA9NtBWxWPqkTq/Club-Website-Redesign-(Copy)?m=auto&t=ghVooozU6fA0uxbk-1'},
-      { title: 'Spotify App Redesign', src: data.sponsorDeck.childImageSharp.gatsbyImageData, tag: 'Mobile App Design', zoom: data.spotifyZoom.childImageSharp.gatsbyImageData, link: 'https://www.figma.com/design/oIW8qbBbdEW65Q44e3MpA8/Matcha-Website-Mockup-(Copy)?node-id=0-1&t=RuvXvA97PazlEX8l-1'},
-      { title: 'HackNights Graphic', src: data.hackNights.childImageSharp.gatsbyImageData, tag: 'Social Media Graphic', zoom: data.hackNights.childImageSharp.gatsbyImageData, link: 'https://www.figma.com/design/yDqGQhK4htRXaYR6A7UjjK/HackNights-API-(Copy)?m=auto&t=WaiqJDrwcFrxDFdH-1'},
-      { title: 'Hack Study Session', src: data.studySesh.childImageSharp.gatsbyImageData, tag: 'Social Media Graphic', zoom: data.studySesh.childImageSharp.gatsbyImageData, link: 'https://www.figma.com/design/MSlkyRQzssRy4GF7fhDK8Z/Study-Session-(Copy)?t=WaiqJDrwcFrxDFdH-1'},
-      { title: 'Survive ICS Graphic', src: data.surviveICS.childImageSharp.gatsbyImageData, tag: 'Social Media Graphic', zoom: data.surviveICS.childImageSharp.gatsbyImageData, link: 'https://www.figma.com/design/E1lX1GhiLQcQu8B6pPQapp/How-to-survive-ICS-(Copy)?m=auto&t=WaiqJDrwcFrxDFdH-1'},
-      { title: 'WICS Figma Workshop', src: data.WICS.childImageSharp.gatsbyImageData, tag: 'Social Media Graphic', zoom: data.WICS.childImageSharp.gatsbyImageData, link: 'https://www.figma.com/design/3xyU2KmW7gpcZ30nDcJgoL/WICS-Figma-Workshop?m=auto&t=WaiqJDrwcFrxDFdH-1'},
+      { title: 'The Pitch Movie Screening Graphic', src: data.patient_safety.childImageSharp.gatsbyImageData, tag: 'Social Media Graphic', zoom: data.patient_safety.childImageSharp.gatsbyImageData, },
+      { title: 'HackNights Study Session', src: data.study_sesh.childImageSharp.gatsbyImageData, tag: 'Social Media Graphic', zoom: data.study_sesh.childImageSharp.gatsbyImageData},
+      { title: 'Hack Organizer Spotlight', src: data.org_spotlight.childImageSharp.gatsbyImageData, tag: 'Website Mockup', zoom: data.org_spotlight_zoom.childImageSharp.gatsbyImageData},
+      { title: 'Hack Club Info Session', src: data.info_sesh.childImageSharp.gatsbyImageData, tag: 'Mobile App Design', zoom: data.info_sesh.childImageSharp.gatsbyImageData},
+      { title: 'VReal Graphic', src: data.vreal.childImageSharp.gatsbyImageData, tag: 'Social Media Graphic', zoom: data.vreal.childImageSharp.gatsbyImageData},
+      { title: 'Iris Hacks', src: data.irisHacks.childImageSharp.gatsbyImageData, tag: 'Social Media Graphic', zoom: data.irisHacks.childImageSharp.gatsbyImageData},
+      { title: 'General Atomics x WICS', src: data.atomics.childImageSharp.gatsbyImageData, tag: 'Social Media Graphic', zoom: data.atomics.childImageSharp.gatsbyImageData},
+      { title: 'Mobile Toys App', src: data.mobile_toys.childImageSharp.gatsbyImageData, tag: 'Website Mockup', zoom: data.mobile_toys_zoom.childImageSharp.gatsbyImageData},
+      { title: 'GIGetter App', src: data.gig_getter.childImageSharp.gatsbyImageData, tag: 'Website Mockup', zoom: data.gig_getter_zoom.childImageSharp.gatsbyImageData},
+      { title: 'Version 1 Portfolio', src: data.v1_port.childImageSharp.gatsbyImageData, tag: 'Website Mockup', zoom: data.v1_port_zoom.childImageSharp.gatsbyImageData},
+      { title: 'Version 2 Portfolio', src: data.v2_port.childImageSharp.gatsbyImageData, tag: 'Website Mockup', zoom: data.v2_port_zoom.childImageSharp.gatsbyImageData},
     ];
 
     const [isModalOpen, setIsModalOpen] = useState(false);

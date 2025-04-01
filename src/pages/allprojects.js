@@ -1,7 +1,5 @@
 import * as React from "react"
-import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import { useState, useEffect, useRef } from "react";
 import  NavBar  from "../components/navbar";
 import Footer from "../components/footer";
 
