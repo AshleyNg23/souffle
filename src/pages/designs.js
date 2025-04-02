@@ -1,13 +1,18 @@
 import * as React from "react"
+import { useState } from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { graphql, useStaticQuery } from "gatsby";
-import { useState } from "react";
+import { StaticImage } from "gatsby-plugin-image"
 
-import * as styles from "../components/index.module.css"
 import  NavBar  from "../components/navbar";
 import Footer from "../components/footer";
 import ImageModal from "../components/imageModal";
-import { StaticImage } from "gatsby-plugin-image"
+
+import * as styles from "../components/index.module.css"
+
+import useSound from 'use-sound';
+import pop_1 from '../sounds/pop_1.mp3';
+import click from '../sounds/click.mp3';
 
 const Designs = () => {
   const data = useStaticQuery(graphql`
@@ -97,6 +102,9 @@ const Designs = () => {
     setIsModalOpen(true);
   };
 
+  const [play] = useSound(pop_1);
+  const [clickplay] = useSound(click);
+
   return (
 <div>
       <NavBar></NavBar>
@@ -112,7 +120,7 @@ const Designs = () => {
           <div className={styles.designContainer}>
             <div className={styles.aboutMeHeader}>
               <h3 className={styles.containerHeader}>-- {designs[index].title}</h3>
-              <div onClick={() => openModal(designs[index].title, designs[index].zoom, designs[index].tag)}><GatsbyImage image={getImage(designs[index].src)} alt="bunny resting under a tree drawing" className={styles.designImg}/></div>
+              <div onMouseEnter={() => play()} onClick={() => {openModal(designs[index].title, designs[index].zoom, designs[index].tag); clickplay(); }}><GatsbyImage image={getImage(designs[index].src)} alt="bunny resting under a tree drawing" className={styles.designImg}/></div>
             </div>
             <div className={styles.sectionFooter}>
             <div className={styles.designText}>
@@ -125,7 +133,7 @@ const Designs = () => {
           <div className={styles.designContainer}>
             <div className={styles.aboutMeHeader}>
               <h3 className={styles.containerHeader}>-- {designs[index + 1].title}</h3>
-              <div onClick={() => openModal(designs[index + 1].title, designs[index + 1].zoom, designs[index + 1].tag)}><GatsbyImage image={getImage(designs[index + 1].src)} alt="bunny resting under a tree drawing" className={styles.designImg}/></div>
+              <div onMouseEnter={() => play()} onClick={() => {openModal(designs[index + 1].title, designs[index + 1].zoom, designs[index + 1].tag); clickplay(); }}><GatsbyImage image={getImage(designs[index + 1].src)} alt="bunny resting under a tree drawing" className={styles.designImg}/></div>
             </div>
             <div className={styles.sectionFooter}>
             <div className={styles.designText}>

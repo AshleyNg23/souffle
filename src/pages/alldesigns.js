@@ -7,8 +7,13 @@ import { graphql, useStaticQuery } from "gatsby";
 import ImageModal from "../components/imageModal";
 
 import * as styles from "../components/index.module.css"
+import useSound from 'use-sound';
+import pop_1 from '../sounds/pop_1.mp3';
+import click from '../sounds/click.mp3';
 
 const AllDesigns = () => {
+    const [play] = useSound(pop_1);
+    const [clickplay] = useSound(click);
   const data = useStaticQuery(graphql`
       query {
         patient_safety: file(relativePath: { eq: "designs/alldesigns/patient_safety_movie_ash.png" }) {
@@ -102,9 +107,9 @@ const AllDesigns = () => {
       { title: 'General Atomics x WICS', src: data.atomics.childImageSharp.gatsbyImageData, tag: 'Social Media Graphic', zoom: data.atomics.childImageSharp.gatsbyImageData},
       { title: 'Mobile Toys App', src: data.mobile_toys.childImageSharp.gatsbyImageData, tag: 'Website Mockup', zoom: data.mobile_toys_zoom.childImageSharp.gatsbyImageData},
       { title: 'GIGetter App', src: data.gig_getter.childImageSharp.gatsbyImageData, tag: 'Website Mockup', zoom: data.gig_getter_zoom.childImageSharp.gatsbyImageData},
-      { title: 'Version 1 Portfolio', src: data.v1_port.childImageSharp.gatsbyImageData, tag: 'Website Mockup', zoom: data.v1_port_zoom.childImageSharp.gatsbyImageData},
-      { title: 'Version 2 Portfolio', src: data.v2_port.childImageSharp.gatsbyImageData, tag: 'Website Mockup', zoom: data.v2_port_zoom.childImageSharp.gatsbyImageData},
-    ];
+      { title: 'Version 2 Portfolio', src: data.v1_port.childImageSharp.gatsbyImageData, tag: 'Website Mockup', zoom: data.v1_port_zoom.childImageSharp.gatsbyImageData},
+      { title: 'Version 3 Portfolio', src: data.v2_port.childImageSharp.gatsbyImageData, tag: 'Website Mockup', zoom: data.v2_port_zoom.childImageSharp.gatsbyImageData},
+      ];
 
     const [isModalOpen, setIsModalOpen] = useState(false);
       const [modalContent, setModalContent] = useState({
@@ -129,7 +134,10 @@ const AllDesigns = () => {
             {designs.map((design, index) => (
                 <div className={styles.gallery_item}
                 key={index} 
-                onClick={() => openModal(design.title, design.zoom, design.tag)}>
+                onClick={() => {openModal(design.title, design.zoom, design.tag); clickplay();}}
+                onMouseEnter={() => play()}
+                >
+                  
                     <GatsbyImage image={getImage(design.src)} alt={design.title} className={styles.designImg}/>
                 </div>
             ))}
