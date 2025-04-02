@@ -138,7 +138,7 @@ const IndexPage = () => {
             <div className={styles.sectionFooter}>
             <div className={styles.containerText}>
                 <p>Curious about my creative process? View some of my design projects for websites, apps, and branding. Also view designs ive made for social media and marketing purposes</p>
-                  <a href="/designs" className={styles.link} onMouseEnter={() => play()} onClick={() => clickplay()}><p className={styles.viewMore}>view more &rarr;</p></a>
+                  <a href="/souffle/designs" className={styles.link} onMouseEnter={() => play()} onClick={() => clickplay()}><p className={styles.viewMore}>view more &rarr;</p></a>
             </div>
           </div>
           </div>
@@ -150,7 +150,7 @@ const IndexPage = () => {
             <div className={styles.sectionFooter}>
               <div className={styles.containerText}>
                   <p>Check out some passion projects I’ve worked on to learn new skills and languages, along with team projects I’ve created with peers</p>
-                    <a href="/projects" className={styles.link}  onMouseEnter={() => play()} onClick={() => clickplay()}><p className={styles.viewMore}>view more &rarr;</p></a>
+                    <a href="/souffle/projects" className={styles.link}  onMouseEnter={() => play()} onClick={() => clickplay()}><p className={styles.viewMore}>view more &rarr;</p></a>
               </div>
             </div>
           </div>

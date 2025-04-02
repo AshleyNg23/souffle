@@ -109,7 +109,7 @@ const Designs = () => {
 <div>
       <NavBar></NavBar>
       <div className={styles.pageHeader}>
-        <a href="/" className={styles.link}><h3>&larr; designs</h3></a>
+        <a href="/souffle" className={styles.link}><h3>&larr; designs</h3></a>
       </div>
       {/* Projects & Designs */}
       {designs.map((_, index) => {
@@ -149,7 +149,7 @@ const Designs = () => {
         }})
       };
       <div className={styles.pageHeader}>
-              <a href="/alldesigns" className={styles.link}><h3>more designs &rarr;</h3></a>
+              <a href="/souffle/alldesigns" className={styles.link}><h3>more designs &rarr;</h3></a>
             </div>
       <ImageModal 
           isOpen={isModalOpen} 

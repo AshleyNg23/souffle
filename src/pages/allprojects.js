@@ -29,7 +29,7 @@ const AllProjects = () => {
     <div>
       <NavBar></NavBar>
       <div className={styles.pageHeader}>
-                    <a href="/projects" className={styles.link}><h3>&larr; all projects</h3></a>
+                    <a href="/souffle/projects" className={styles.link}><h3>&larr; all projects</h3></a>
               </div>
       {/*projects Section */}
       <div className={styles.section}> 

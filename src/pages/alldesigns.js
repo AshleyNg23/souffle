@@ -128,7 +128,7 @@ const AllDesigns = () => {
       <NavBar></NavBar>
       {/* Hero Header */}
       <div className={styles.pageHeader}>
-              <a href="/designs" className={styles.link}><h3>&larr; all designs</h3></a>
+              <a href="/souffle/designs" className={styles.link}><h3>&larr; all designs</h3></a>
         </div>
         <div className={styles.gallery}> 
             {designs.map((design, index) => (

@@ -58,7 +58,7 @@ const Projects = () => {
 <div>
       <NavBar></NavBar>
       <div className={styles.pageHeader}>
-        <a href="/" className={styles.link}><h3>&larr; projects</h3></a>
+        <a href="/souffle" className={styles.link}><h3>&larr; projects</h3></a>
       </div>
       {/* Projects & projects */}
       {projects.map((_, index) => {
@@ -108,7 +108,7 @@ const Projects = () => {
         }})
       };
       <div className={styles.pageHeader}>
-        <a href="/allprojects" className={styles.link}><h3>more projects &rarr;</h3></a>
+        <a href="/souffle/allprojects" className={styles.link}><h3>more projects &rarr;</h3></a>
       </div>
       <div className={styles.moving_background}></div>
       <div className={styles.moving_background_right}></div>
